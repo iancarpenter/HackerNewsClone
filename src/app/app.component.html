@@ -8,18 +8,30 @@
     <div class="row">
         <div class="col-sm">
             <h3>New Stories</h3>
+            <ol>
+                <li *ngFor="let newStory of newStories">
+                    <a href="{{ newStory.url }}">{{ newStory.title }}</a>
+                    <p>{{ newStory.score }} points by {{ newStory.by }} timeNeedsToGoHere {{ newStory.descendants }} comments</p>
+                </li>
+            </ol>
         </div>
         <div class="col-sm">
             <h3>Top Stories</h3>
             <ol>
-                <li *ngFor="let topStory of topStories"> 
+                <li *ngFor="let topStory of topStories">
                     <a href="{{ topStory.url }}">{{ topStory.title }}</a>
-                    <p>{{ topStory.score }} points by {{ topStory.by }} timeNeedsToGoHere {{ topStory.descendants }} comments </p>
+                    <p>{{ topStory.score }} points by {{ topStory.by }} timeNeedsToGoHere {{ topStory.descendants }} comments</p>
                 </li>
             </ol>
         </div>
         <div class="col-sm">
             <h3>Best Stories</h3>
+            <ol>
+                <li *ngFor="let bestStory of bestStories">
+                    <a href="{{ bestStory.url }}">{{ bestStory.title }}</a>
+                    <p>{{ bestStory.score }} points by {{ bestStory.by }} timeNeedsToGoHere {{ bestStory.descendants }} comments</p>
+                </li>
+            </ol>
         </div>
     </div>
 </div>
