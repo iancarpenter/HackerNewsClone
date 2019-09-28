@@ -52,9 +52,9 @@ export class AppComponent implements OnInit {
     return formattedTimePosted;
 
   }
-  // return a string with number hour(s) | minute(s) ago
-  // 8 hours ago or 1 minute ago
-  calculateTimePosted(timePosted: number): string {
+
+  // return the time difference between right now and timePosted
+  private calculateTimeDifference(timePosted: number): number {
 
     const timePostedAsDate = new Date(timePosted * 1000).getTime();
 
@@ -75,6 +75,7 @@ export class AppComponent implements OnInit {
     const minutes = Math.floor(timeDifference / 60) % 60;
     // not interested in seconds but here for completeness
     // const seconds = Math.floor(timeDifference % 60);
+
     return { days, hours, minutes };
   }
 
@@ -102,4 +103,5 @@ export class AppComponent implements OnInit {
     }
     return formattedTimePosted;
   }
+
 }
