@@ -11,7 +11,7 @@
             <ol>
                 <li *ngFor="let newStory of newStories">
                     <a href="{{ newStory.url }}">{{ newStory.title }}</a>
-                    <p>{{ newStory.score }} points by {{ newStory.by }} {{ calculateTimePosted(newStory.time) }} {{ newStory.descendants }} comments</p>
+                    <p>{{ newStory.score }} points by {{ newStory.by }} {{ getTimePosted(newStory.time) }} {{ newStory.descendants }} comments</p>
                 </li>
             </ol>
         </div>
@@ -20,7 +20,7 @@
             <ol>
                 <li *ngFor="let topStory of topStories">
                     <a href="{{ topStory.url }}">{{ topStory.title }}</a>
-                    <p>{{ topStory.score }} points by {{ topStory.by }} {{ calculateTimePosted(topStory.time) }} {{ topStory.descendants }} comments</p>
+                    <p>{{ topStory.score }} points by {{ topStory.by }} {{ getTimePosted(topStory.time) }} {{ topStory.descendants }} comments</p>                    
                 </li>
             </ol>
         </div>
@@ -29,7 +29,7 @@
             <ol>
                 <li *ngFor="let bestStory of bestStories">
                     <a href="{{ bestStory.url }}">{{ bestStory.title }}</a>
-                    <p>{{ bestStory.score }} points by {{ bestStory.by }} {{ calculateTimePosted(bestStory.time) }} {{ bestStory.descendants }} comments</p>
+                    <p>{{ bestStory.score }} points by {{ bestStory.by }} {{ getTimePosted(bestStory.time) }} {{ bestStory.descendants }} comments</p>
                 </li>
             </ol>
         </div>

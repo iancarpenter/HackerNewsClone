@@ -25,7 +25,6 @@ export class AppComponent implements OnInit {
 
   getStories(whichStory: number) {
     this.hnService.getStories(whichStory).subscribe((stories) => {
-      console.log(stories);
       switch (whichStory) {
         case AvailableStories.new:
           this.newStories = stories;
@@ -40,6 +39,19 @@ export class AppComponent implements OnInit {
     });
   }
 
+  // return a string with number hour(s) | minute(s) when the post was made ago
+  // 2 days ago or 8 hours ago or 1 minute ago
+  getTimePosted(timePosted: number): string {
+
+    const timeDifference = this.calculateTimeDifference(timePosted);
+
+    const { days, hours, minutes } = this.splitTimeIntoDaysHoursMins(timeDifference);
+
+    const formattedTimePosted = this.getFormattedTimePosted(days, hours, minutes);
+
+    return formattedTimePosted;
+
+  }
   // return a string with number hour(s) | minute(s) ago
   // 8 hours ago or 1 minute ago
   calculateTimePosted(timePosted: number): string {
@@ -50,31 +62,44 @@ export class AppComponent implements OnInit {
 
     const timeDifference = Math.floor(now - timePostedAsDate) / 1000;
 
-    // pass to formatting
+    return timeDifference;
+  }
+
+  // split the time difference into its constituent parts; days, hours and minutes
+  private splitTimeIntoDaysHoursMins(timeDifference: number) {
 
     const days = Math.floor(timeDifference / 86400);
+
     const hours = Math.floor(timeDifference / 3600) % 24;
+
     const minutes = Math.floor(timeDifference / 60) % 60;
-    // not interested in seconds
+    // not interested in seconds but here for completeness
     // const seconds = Math.floor(timeDifference % 60);
+    return { days, hours, minutes };
+  }
+
+  // return the formatted string showing plural and singular words as appropriate
+  private getFormattedTimePosted(days: number, hours: number, minutes: number): string {
+
+    let formattedTimePosted: string;
 
     if (days > 0) {
       if (days === 1) {
-        return days + ' day ago';
+        formattedTimePosted = days + ' day ago';
       } else if (days > 1) {
-        return days + ' days ago';
+        formattedTimePosted = days + ' days ago';
       }
     } else if (hours > 0) {
       if (hours === 1) {
-        return hours + ' hour ago';
+        formattedTimePosted = hours + ' hour ago';
       } else if (hours > 1) {
-        return hours + ' hours ago';
+        formattedTimePosted = hours + ' hours ago';
       }
     } else if (minutes === 1) {
-        return minutes + ' minute ago';
-      } else if (minutes !== 1) {
-        return minutes + ' minutes ago';
-      }
+      formattedTimePosted = minutes + ' minute ago';
+    } else if (minutes !== 1) {
+      formattedTimePosted = minutes + ' minutes ago';
     }
+    return formattedTimePosted;
+  }
 }
-
