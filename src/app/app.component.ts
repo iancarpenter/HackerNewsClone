@@ -25,7 +25,6 @@ export class AppComponent implements OnInit {
 
   getStories(whichStory: number) {
     this.hnService.getStories(whichStory).subscribe((stories) => {
-
       switch (whichStory) {
         case AvailableStories.new:
           this.newStories = stories;
@@ -53,9 +52,9 @@ export class AppComponent implements OnInit {
     return formattedTimePosted;
 
   }
-
-  // return the difference between right now and time of the the post
-  private calculateTimeDifference(timePosted: number): number {
+  // return a string with number hour(s) | minute(s) ago
+  // 8 hours ago or 1 minute ago
+  calculateTimePosted(timePosted: number): string {
 
     const timePostedAsDate = new Date(timePosted * 1000).getTime();
 
@@ -103,6 +102,4 @@ export class AppComponent implements OnInit {
     }
     return formattedTimePosted;
   }
-
 }
-

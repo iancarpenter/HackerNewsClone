@@ -20,7 +20,7 @@
             <ol>
                 <li *ngFor="let topStory of topStories">
                     <a href="{{ topStory.url }}">{{ topStory.title }}</a>
-                    <p>{{ topStory.score }} points by {{ topStory.by }} {{ getTimePosted(topStory.time) }} {{ topStory.descendants }} comments</p>
+                    <p>{{ topStory.score }} points by {{ topStory.by }} {{ getTimePosted(topStory.time) }} {{ topStory.descendants }} comments</p>                    
                 </li>
             </ol>
         </div>
