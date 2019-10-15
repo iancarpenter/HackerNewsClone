@@ -1,0 +1,21 @@
+<router-outlet></router-outlet>
+<div class="container">  
+  <div class="row" *ngFor="let comment of commentDetails let i = index">
+    <p>
+      <a class="btn btn-primary" 
+         data-toggle="collapse" 
+         href="#collapseExample_{{i}}" 
+         role="button" 
+         aria-expanded="false" 
+         aria-controls="collapseExample"
+         (click)="getChildComments(comment.kids)">
+      </a>
+    </p>
+    <p>{{ decodeHTML(comment.text) }}</p>
+    <div class="collapse" id="collapseExample_{{i}}">
+      <div class="card card-body" *ngFor="let childComment of childCommentDetails">
+         <p>{{ decodeHTML(childComment.text) }}</p>
+      </div>
+    </div>
+  </div>
+</div>
