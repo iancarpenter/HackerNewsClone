@@ -9,13 +9,13 @@
          role="button" 
          aria-expanded="false" 
          aria-controls="collapseExample"
-         (click)="getChildComments(comment.kids)">
+         (click)="getCommentDetails(comment.kids)">
       </a>
-    </p>
-    <p>{{ decodeHTML(comment.text) }}</p>
+    </p>    
+    <p [innerHTML]="comment.text"></p>
     <div class="collapse" id="collapseExample_{{i}}">
-      <div class="card card-body" *ngFor="let childComment of childCommentDetails">
-         <p>{{ decodeHTML(childComment.text) }}</p>
+      <div class="card card-body">
+        <p [innerHTML]="comment.text"></p>
       </div>
     </div>
   </div>

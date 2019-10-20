@@ -17,9 +17,4 @@ export class CommentsTransferService {
     return this.commentIDs;
   }
 
-  // causing problems with comments components
-  // clearData() {
-  //   this.getCommentIDs = undefined;
-  // }
-
 }
