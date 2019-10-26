@@ -28,14 +28,10 @@ export class HackerNewsService {
     }
 
     getComments(commentIDs: number[]) {
-
-        console.log('Comment id length! ', this.comments.length);
-        console.log('These are the comment ids supplied ', commentIDs);
-
         this.comments = [];
 
         commentIDs.forEach(((id) => {
-            // console.log(this.getStoryDetails(id).subscribe(val => console.log(val)));
+
             this.getStoryDetails(id).subscribe(val => (
                 this.comments.push(val)));
         }));

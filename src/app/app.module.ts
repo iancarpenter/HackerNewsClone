@@ -6,12 +6,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommentsComponent } from './comments/comments.component';
 import { routing } from './app-routing';
 import { HomeComponent } from './home/home.component';
+import { ChildCommentsComponent } from './child-comments/child-comments.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     CommentsComponent,
-    HomeComponent
+    HomeComponent,
+    ChildCommentsComponent
   ],
   imports: [
     BrowserModule,

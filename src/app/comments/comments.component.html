@@ -1,22 +1,25 @@
-<router-outlet></router-outlet>
 <div class="container">  
   <div class="row" *ngFor="let comment of commentDetails let i = index">
     <!-- only display the expand button if there are child comments -->
     <p *ngIf="comment.kids?.length > 0">
       <a class="btn btn-primary" 
-         data-toggle="collapse" 
-         href="#collapseExample_{{i}}" 
-         role="button" 
-         aria-expanded="false" 
-         aria-controls="collapseExample"
-         (click)="getCommentDetails(comment.kids)">
+         (click)="toggleActivate()">>
       </a>
     </p>    
     <p [innerHTML]="comment.text"></p>
-    <div class="collapse" id="collapseExample_{{i}}">
+
+    <ng-container *ngIf="isActivated">
+      <app-child-comments [id]="comment.kids"></app-child-comments>    
+      <!-- <li *ngFor="let comment of kids; let i = index;">
+        <app-collapsible-list [level]="level" [id]="comment" (hasBeenDeleted)="onDeleted($event)">
+        </app-collapsible-list>
+      </li> -->
+    </ng-container>
+
+    <!-- <div class="collapse" id="collapseExample_{{i}}">
       <div class="card card-body">
-        <p [innerHTML]="comment.text"></p>
+        <p [innerHTML]="comment.text"></p>                
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
