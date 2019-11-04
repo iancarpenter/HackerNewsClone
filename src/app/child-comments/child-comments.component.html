@@ -1,16 +1,20 @@
-<p>
+<!-- <p>
   child-comments works! {{ id }}
-</p>
+</p> -->
 
 <!-- <div *ngFor="let comment of commentDetails">
   <p [innerHTML]="childCommentDetail.text">blah</p>
 </div> -->
 
-<div *ngFor="let comment of childCommentDetails">
+<!-- <div *ngFor="let comment of childCommentDetails"> -->
   <!-- <p [innerHTML]="comment"></p> -->
-  <li>{{ comment | json}} </li>
-</div>
+  <!-- <li>{{ comment | json}} </li> -->
+<!-- </div> -->
 
 <!-- <div *ngFor="let comment of data">
   <p [innerHTML]="comment">blah</p>
 </div> -->
+
+<div *ngIf="d?.text">
+  <p [innerHTML]="d.text"></p>
+</div>
