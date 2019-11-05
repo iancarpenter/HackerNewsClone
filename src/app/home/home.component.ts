@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AvailableStories } from '../models/enums.model';
 import { HackerNewsService } from '../services/hackernews.service';
 import { Router } from '@angular/router';
-import { CommentsTransferService } from '../services/comments-transfer.service';
-import { HNItem } from '../models/hnitem.model';
+import { StoryTransferService } from '../services/story-transfer.service';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +17,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private hnService: HackerNewsService,
               private router: Router,
-              private commentsTransferService: CommentsTransferService) {}
+              private storyTransferService: StoryTransferService) {}
 
   ngOnInit() {
     this.getStories(AvailableStories.new);
@@ -110,9 +109,8 @@ export class HomeComponent implements OnInit {
     return formattedTimePosted;
   }
 
-  goToComments(commentIds: number[]) {
-    this.commentsTransferService.setCommentIDs(commentIds);
+  goToComments(storyID: number) {
+    this.storyTransferService.setStoryID(storyID);
     this.router.navigateByUrl('/comments');
   }
-
 }

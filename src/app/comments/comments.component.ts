@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { CommentsTransferService } from '../services/comments-transfer.service';
+import { Component, OnInit, Input } from '@angular/core';
 import { HackerNewsService } from '../services/hackernews.service';
+import { StoryTransferService } from '../services/story-transfer.service';
 
 @Component({
   selector: 'app-comments',
@@ -9,24 +9,38 @@ import { HackerNewsService } from '../services/hackernews.service';
 })
 export class CommentsComponent implements OnInit {
 
-  commentIDs: number[];
-  commentDetails: any[];
-  isActivated: boolean;
+  @Input() id: number;
+  @Input() level: number;
+  public by: string;
+  public kids: string[];
+  public text: string;
+  public time: string;
+  public hasCommentTree: boolean;
 
-  constructor(private commentsTransferService: CommentsTransferService,
+  storyID: number;
+
+
+  constructor(private storyTransferService: StoryTransferService,
               private hackerNewsService: HackerNewsService) { }
 
   ngOnInit() {
-    this.getCommentDetails(this.commentsTransferService.getCommentIDs());
+    this.storyID = this.storyTransferService.getStoryID();
+    if (this.storyID !== null) {
+      this.storyTransferService.deleteStoryID();
+      this.getCommentDetails(this.storyID);
+    } else {
+      this.getCommentDetails(this.id);
+    }
   }
 
-  getCommentDetails(commentIds: number[]) {
-     this.commentDetails = this.hackerNewsService.getComments(commentIds);
+  getCommentDetails(storyID: number) {
+    this.hackerNewsService.getCommentTree(storyID).subscribe(
+      (data) => {
+        Object.assign(this, data);
+      },
+      (err) => console.log(`error ${err}`),
+      // () => console.log('done')
+    );
   }
-
-  toggleActivate() {
-    this.isActivated = !this.isActivated;
-  }
-
 
 }

@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommentsComponent } from './comments/comments.component';
 import { routing } from './app-routing';
 import { HomeComponent } from './home/home.component';
-import { ChildCommentsComponent } from './child-comments/child-comments.component';
 
 
 @NgModule({
@@ -14,7 +13,6 @@ import { ChildCommentsComponent } from './child-comments/child-comments.componen
     AppComponent,
     CommentsComponent,
     HomeComponent,
-    ChildCommentsComponent
   ],
   imports: [
     BrowserModule,
