@@ -1,0 +1,17 @@
+.comment-text {
+    color: green;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.comment-bullet {
+    list-style: none;
+    padding: 8px;    
+    margin-left: 16px;
+}
+
+.comment-deleted {
+    color: white;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}

@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1>Hacker News clone</h1>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <h3>New Stories</h3>
+            <ol>
+                <li *ngFor="let newStory of newStories">
+                    <a href="{{ newStory.url }}">{{ newStory.title }}</a>
+                    <p>{{ newStory.score }} points by {{ newStory.by }} {{ getTimePosted(newStory.time) }} {{ newStory.descendants }} <a [routerLink]="" (click)="goToComments(bestStory.id)">Comments</a></p>
+                </li>
+            </ol>
+        </div>
+        <div class="col-sm">
+            <h3>Top Stories</h3>
+            <ol>
+                <li *ngFor="let topStory of topStories">
+                    <a href="{{ topStory.url }}">{{ topStory.title }}</a>
+                    <p>{{ topStory.score }} points by {{ topStory.by }} {{ getTimePosted(topStory.time) }} {{ topStory.descendants }} <a [routerLink]="" (click)="goToComments(topStory.id)">Comments</a></p>                    
+                </li>
+            </ol>
+        </div>
+        <div class="col-sm">
+            <h3>Best Stories</h3>
+            <ol>
+                <li *ngFor="let bestStory of bestStories">
+                    <a href="{{ bestStory.url }}">{{ bestStory.title }}</a>
+                    <p>{{ bestStory.score }} points by {{ bestStory.by }} {{ getTimePosted(bestStory.time) }} {{ bestStory.descendants }} <a [routerLink]="" (click)="goToComments(bestStory.id)">Comments</a></p>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
