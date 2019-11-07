@@ -16,7 +16,7 @@ export class CommentsComponent implements OnInit {
   public text: string;
   public time: string;
   public hasCommentTree: boolean;
-
+  public deleted: boolean;
   storyID: number;
 
 
@@ -25,6 +25,8 @@ export class CommentsComponent implements OnInit {
 
   ngOnInit() {
     this.storyID = this.storyTransferService.getStoryID();
+    // first time is the arrival from the home page subsequent calls are the
+    // comments
     if (this.storyID !== null) {
       this.storyTransferService.deleteStoryID();
       this.getCommentDetails(this.storyID);
@@ -37,6 +39,12 @@ export class CommentsComponent implements OnInit {
     this.hackerNewsService.getCommentTree(storyID).subscribe(
       (data) => {
         Object.assign(this, data);
+        if (this.deleted) {
+          console.log('deleted is ' + this.deleted);
+          console.log('deleted type ' + typeof this.deleted);
+          console.log('deleted text ' + this.text);
+          console.log('deleted object ', this);
+        }
       },
       (err) => console.log(`error ${err}`),
       // () => console.log('done')

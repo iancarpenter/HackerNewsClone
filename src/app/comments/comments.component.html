@@ -1,5 +1,6 @@
 <div class="container">
-  <pre class="comment-text" [innerHTML]="text"></pre>
+  <!-- <pre class="comment-text" [innerHTML]="text"></pre>   -->
+  <pre [ngClass]="(!deleted)?'comment-text':'comment-deleted'" [innerHTML]="text"></pre>
   <ng-container>
     <li class="comment-bullet" *ngFor="let comment of kids; let i = index;">
       <app-comments [level]="level" [id]="comment">
