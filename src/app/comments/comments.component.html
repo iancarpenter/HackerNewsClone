@@ -1,5 +1,6 @@
 <div class="comment-text">
   <div class="container">
+    <pre class="comment-text"> {{ by }} {{ time }}</pre>
     <pre class="comment-text" [innerHTML]="text"></pre>
     <!-- useful way to select which class to apply using teratary operator  -->
     <!-- <pre [ngClass]="(!deleted)?'comment-text':'comment-deleted'" [innerHTML]="text"></pre> -->

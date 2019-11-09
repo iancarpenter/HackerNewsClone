@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { StoryTransferService } from '../services/story-transfer.service';
 import { HackerNewsService } from '../services/hackernews.service';
 
+import * as moment from 'moment';
+
 @Component({
   selector: 'app-story-comments',
   templateUrl: './story-comments.component.html',
@@ -35,6 +37,7 @@ export class StoryCommentsComponent implements OnInit {
     this.hackerNewsService.getStorybyId(storyID).subscribe(
       (data) => {
         Object.assign(this, data);
+        this.time = moment.unix(+this.time).fromNow();
       },
       (err) => console.log(`error ${err}`),
     );
