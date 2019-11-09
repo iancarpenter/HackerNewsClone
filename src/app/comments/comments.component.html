@@ -1,14 +1,14 @@
 <div class="comment-text">
-    <h2> {{ storyTitle }} </h2>
+  <div class="container">
+    <pre class="comment-text"> {{ by }} {{ time }}</pre>
+    <pre class="comment-text" [innerHTML]="text"></pre>
+    <!-- useful way to select which class to apply using teratary operator  -->
+    <!-- <pre [ngClass]="(!deleted)?'comment-text':'comment-deleted'" [innerHTML]="text"></pre> -->
+    <ng-container>
+      <li class="comment-bullet" *ngFor="let comment of kids; let i = index;">
+        <app-comments [level]="level" [id]="comment">
+        </app-comments>
+      </li>
+    </ng-container>
   </div>
-<div class="container">  
-  <pre class="comment-text" [innerHTML]="text"></pre>
-  <!-- useful way to select which class to apply using teratary operator  -->
-  <!-- <pre [ngClass]="(!deleted)?'comment-text':'comment-deleted'" [innerHTML]="text"></pre> -->
-  <ng-container>
-    <li class="comment-bullet" *ngFor="let comment of kids; let i = index;">
-      <app-comments [level]="level" [id]="comment">
-      </app-comments>
-    </li>
-  </ng-container>
 </div>

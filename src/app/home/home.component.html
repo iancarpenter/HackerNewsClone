@@ -11,7 +11,7 @@
             <ol>
                 <li *ngFor="let newStory of newStories">
                     <a href="{{ newStory.url }}">{{ newStory.title }}</a>
-                    <p>{{ newStory.score }} points by {{ newStory.by }} {{ getTimePosted(newStory.time) }} {{ newStory.descendants }} <a [routerLink]="" (click)="goToComments(bestStory.id)">Comments</a></p>
+                    <p>{{ newStory.score }} points by {{ newStory.by }} {{ getTimePosted(newStory.time) }} {{ newStory.descendants }} <a [routerLink]="" (click)="goToComments(newStory.id)">Comments</a></p>
                 </li>
             </ol>
         </div>

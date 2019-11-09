@@ -111,6 +111,7 @@ export class HomeComponent implements OnInit {
 
   goToComments(storyID: number) {
     this.storyTransferService.setStoryID(storyID);
+    // this.storyTransferService.setStoryTitle(storyTitle);
     this.router.navigateByUrl('/comments');
   }
 }

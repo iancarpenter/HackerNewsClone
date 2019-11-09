@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { HackerNewsService } from '../services/hackernews.service';
 import { StoryTransferService } from '../services/story-transfer.service';
 
+import * as moment from 'moment';
+
 @Component({
   selector: 'app-comments',
   templateUrl: './comments.component.html',
@@ -17,13 +19,14 @@ export class CommentsComponent implements OnInit {
   public time: string;
   public hasCommentTree: boolean;
   public deleted: boolean;
-  storyID: number;
 
+  private storyID: number;
 
   constructor(private storyTransferService: StoryTransferService,
               private hackerNewsService: HackerNewsService) { }
 
   ngOnInit() {
+
     this.storyID = this.storyTransferService.getStoryID();
     // first time is the arrival from the home page subsequent calls are the
     // comments
@@ -39,15 +42,9 @@ export class CommentsComponent implements OnInit {
     this.hackerNewsService.getCommentTree(storyID).subscribe(
       (data) => {
         Object.assign(this, data);
-        if (this.deleted) {
-          console.log('deleted is ' + this.deleted);
-          console.log('deleted type ' + typeof this.deleted);
-          console.log('deleted text ' + this.text);
-          console.log('deleted object ', this);
-        }
+        this.time = moment.unix(+this.time).fromNow();
       },
       (err) => console.log(`error ${err}`),
-      // () => console.log('done')
     );
   }
 

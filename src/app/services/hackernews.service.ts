@@ -81,4 +81,10 @@ export class HackerNewsService {
         // note the backtick used instead of quotes because of the ${id} parameter
         return this.http.get(`https://hacker-news.firebaseio.com/v0/item/${id}.json`);
     }
+
+    getStorybyId(storyId: number): Observable<any> {
+        return this.http
+          .get(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json`)
+          .pipe(map(data => data));
+    }
 }

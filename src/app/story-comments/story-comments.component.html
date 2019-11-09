@@ -1,0 +1,9 @@
+<h1>{{ title }}</h1>
+<div>
+    <ul>
+        <li class="comment-bullet" *ngFor="let comment of kids; let i = index;">
+            <app-comments [level]="0" [id]="comment">
+            </app-comments>
+        </li>
+    </ul>
+</div>
