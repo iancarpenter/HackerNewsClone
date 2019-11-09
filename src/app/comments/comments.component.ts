@@ -17,13 +17,14 @@ export class CommentsComponent implements OnInit {
   public time: string;
   public hasCommentTree: boolean;
   public deleted: boolean;
-  storyID: number;
 
+  private storyID: number;
 
   constructor(private storyTransferService: StoryTransferService,
               private hackerNewsService: HackerNewsService) { }
 
   ngOnInit() {
+
     this.storyID = this.storyTransferService.getStoryID();
     // first time is the arrival from the home page subsequent calls are the
     // comments
