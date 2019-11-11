@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AvailableStories } from '../models/enums.model';
 import { HackerNewsService } from '../services/hackernews.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { StoryTransferService } from '../services/story-transfer.service';
 
 @Component({
@@ -15,32 +14,27 @@ export class HomeComponent implements OnInit {
   topStories: any[];
   bestStories: any[];
 
+  stories: any[];
+  whichStory: string;
+
   constructor(private hnService: HackerNewsService,
               private router: Router,
-              private storyTransferService: StoryTransferService) {}
+              private storyTransferService: StoryTransferService,
+              private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.getStories(AvailableStories.new);
-    this.getStories(AvailableStories.top);
-    this.getStories(AvailableStories.best);
+
+    this.whichStory = this.route.snapshot.data.feed;
+
+    this.getStories(this.whichStory);
+
   }
 
-  getStories(whichStory: number) {
+  getStories(whichStory: string) {
     this.hnService.getStories(whichStory).subscribe((stories) => {
 
-      console.log(stories);
+      this.stories = stories;
 
-      switch (whichStory) {
-        case AvailableStories.new:
-          this.newStories = stories;
-          break;
-        case AvailableStories.top:
-          this.topStories = stories;
-          break;
-        case AvailableStories.best:
-          this.bestStories = stories;
-          break;
-      }
     });
   }
 
@@ -111,7 +105,6 @@ export class HomeComponent implements OnInit {
 
   goToComments(storyID: number) {
     this.storyTransferService.setStoryID(storyID);
-    // this.storyTransferService.setStoryTitle(storyTitle);
-    this.router.navigateByUrl('/comments');
+    this.router.navigateByUrl('/item/' + storyID);
   }
 }
