@@ -7,6 +7,7 @@ import { CommentsComponent } from './comments/comments.component';
 import { routing } from './app-routing';
 import { HomeComponent } from './home/home.component';
 import { StoryCommentsComponent } from './story-comments/story-comments.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { StoryCommentsComponent } from './story-comments/story-comments.componen
     CommentsComponent,
     HomeComponent,
     StoryCommentsComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

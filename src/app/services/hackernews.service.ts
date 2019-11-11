@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, forkJoin } from 'rxjs';
 import { mergeMap, map } from 'rxjs/operators';
-import { AvailableStories } from '../models/enums.model';
 
 @Injectable({ providedIn: 'root' })
 
@@ -12,13 +11,15 @@ export class HackerNewsService {
     private readonly topStoriesURL: string = 'https://hacker-news.firebaseio.com/v0/topstories.json';
     private readonly bestStoriesURL: string = 'https://hacker-news.firebaseio.com/v0/beststories.json';
 
-    comments = new Array();
+    private readonly topstories = 'topstories';
+    private readonly newstories = 'newstories';
+    private readonly beststories = 'beststories';
 
     constructor(private http: HttpClient) { }
 
     // marshalling method - obtains the ids for the story and then passes them on to the next
     // observable to obtain the details for the id's supplied
-    getStories(storyRequested: number) {
+    getStories(storyRequested: string) {
 
         const storyURL = this.getURL(storyRequested);
 
@@ -27,39 +28,24 @@ export class HackerNewsService {
         );
     }
 
-    getComments(commentIDs: number[]) {
-        this.comments = [];
-
-        commentIDs.forEach(((id) => {
-
-            this.getStoryDetails(id).subscribe(val => (
-                this.comments.push(val)));
-        }));
-
-        return this.comments;
-    }
-
     getCommentTree(commentId): Observable<any> {
         return this.http
           .get(`https://hacker-news.firebaseio.com/v0/item/${commentId}.json`)
           .pipe(map(data => data));
     }
 
-    getURL(storyRequested: number): string {
+    getURL(storyRequested: string): string {
 
         let storyRequestedURL: string;
 
         switch (storyRequested) {
-
-            case AvailableStories.new:
+            case this.newstories:
                 storyRequestedURL = this.newStoriesURL;
                 break;
-
-            case AvailableStories.top:
+            case this.topstories:
                 storyRequestedURL = this.topStoriesURL;
                 break;
-
-            case AvailableStories.best:
+            case this.beststories:
                 storyRequestedURL = this.bestStoriesURL;
                 break;
         }
