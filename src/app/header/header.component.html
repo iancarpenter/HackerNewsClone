@@ -6,14 +6,14 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item" [routerLinkActive]="['active']">
         <!-- <a class="nav-link" href="#">Top<span class="sr-only">(current)</span></a> -->
         <a class="nav-link" [routerLink]="['/topstories']" routerLink="active">Top</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" [routerLinkActive]="['active']">
         <a class="nav-link" [routerLink]="['/newstories']" routerLink="active">New</a>
       </li>      
-      <li class="nav-item">
+      <li class="nav-item" [routerLinkActive]="['active']">
         <a class="nav-link" [routerLink]="['/beststories']" routerLink="active">Best</a>
       </li>      
     </ul>    
