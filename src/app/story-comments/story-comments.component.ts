@@ -30,7 +30,6 @@ export class StoryCommentsComponent implements OnInit {
     this.storyID = this.storyTransferService.getStoryID();
     this.storyTransferService.deleteStoryID();
     this.getStoryDetails(this.storyID);
-
   }
 
   getStoryDetails(storyID: number) {
