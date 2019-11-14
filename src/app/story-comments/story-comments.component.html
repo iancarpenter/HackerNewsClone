@@ -1,9 +1,17 @@
-<h3><a href="{{ url }}">{{ title }}</a></h3>
-<div>
-    <ul>
-        <li class="comment-bullet" *ngFor="let comment of kids; let i = index;">
-            <app-comments [level]="0" [id]="comment">
-            </app-comments>
-        </li>
-    </ul>
+<div class="container">
+    <div class="row justify-content-center">
+        <h3><a href="{{ url }}">{{ title }}</a></h3>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <div>
+                <ul>
+                    <li class="comment-bullet" *ngFor="let comment of kids; let i = index;">
+                        <app-comments [level]="0" [id]="comment">
+                        </app-comments>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
