@@ -1,7 +1,7 @@
-.comment-text {
-    color: green;
+.comment-text {    
     white-space: pre-wrap;
     word-wrap: break-word;
+    font-family: Verdana;
 }
 
 .comment-bullet {

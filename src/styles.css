@@ -1,5 +1,19 @@
 body {
-    background: black;
-    color: green;
-    font-family: 'Ubuntu Mono', monospace;
+    background: white;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
 }
+
+a:link {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    border-bottom: 2px dashed #444;    
+    color: #337;
+}    
