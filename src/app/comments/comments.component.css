@@ -1,11 +1,12 @@
 .comment-text {    
     white-space: pre-wrap;
     word-wrap: break-word;
-    font-family: Verdana;    
+    font-family: Verdana;
+    
 }
 
 .comment-bullet {
     list-style: none;
     padding: 8px;    
-    margin-left: 16px;
+    margin-left: 16px;    
 }
