@@ -1,5 +1,8 @@
-.comment-text {
-    color: green;
+.row {
+    background-color: lightgrey;
+}
+
+.comment-text {    
     white-space: pre-wrap;
     word-wrap: break-word;
 }
