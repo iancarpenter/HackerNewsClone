@@ -1,6 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-  <a class="navbar-brand" href="https://github.com/iancarpenter/HackerNewsClone">A Hacker News clone built with love and Angular</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <div class="d-none d-sm-block">
+    <a class="navbar-brand" href="https://github.com/iancarpenter/HackerNewsClone">A Hacker News clone built with love
+      and Angular</a>
+  </div>
+  <div class="d-block d-sm-none">
+      <a class="navbar-brand" href="https://github.com/iancarpenter/HackerNewsClone">A Hacker News clone</a>
+    </div>  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -12,10 +19,10 @@
       </li>
       <li class="nav-item" [routerLinkActive]="['active']">
         <a class="nav-link" [routerLink]="['/newstories']" routerLink="active">New</a>
-      </li>      
+      </li>
       <li class="nav-item" [routerLinkActive]="['active']">
         <a class="nav-link" [routerLink]="['/beststories']" routerLink="active">Best</a>
-      </li>      
-    </ul>    
+      </li>
+    </ul>
   </div>
 </nav>
