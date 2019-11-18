@@ -7,7 +7,7 @@ const routes: Routes = [
     { path: '', redirectTo: 'topstories', pathMatch: 'full' },
     { path: 'newstories', data: { feed: 'newstories' }, component: HomeComponent },
     { path: 'beststories', data: { feed: 'beststories' }, component: HomeComponent },
-    { path: 'item/:itemId', component: StoryCommentsComponent }
+    { path: 'item/:itemId', component: StoryCommentsComponent, runGuardsAndResolvers: 'always' },
 ];
 
 export const routing = RouterModule.forRoot(routes);

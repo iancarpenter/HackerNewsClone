@@ -3,6 +3,7 @@ import { StoryTransferService } from '../services/story-transfer.service';
 import { HackerNewsService } from '../services/hackernews.service';
 
 import * as moment from 'moment';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-story-comments',
@@ -22,11 +23,25 @@ export class StoryCommentsComponent implements OnInit {
   public url: string;
 
   private storyID: number;
+  private navigationSubscription;
 
   constructor(private storyTransferService: StoryTransferService,
-              private hackerNewsService: HackerNewsService) { }
+              private hackerNewsService: HackerNewsService,
+              private router: Router) {
+                this.navigationSubscription = this.router.events.subscribe((e: any) => {
+                  if (e instanceof NavigationEnd) {
+                    console.log('Constructor Firing...');
+                    // this.storyID = this.storyTransferService.getStoryID();
+                    // this.storyTransferService.deleteStoryID();
+                    // this.getStoryDetails(this.storyID);
+                  }
+                });
+  }
 
   ngOnInit() {
+    console.log('ngOnInit Firing...');
+    console.log('this.storyTransferService.getStoryID() is ', this.storyTransferService.getStoryID());
+    
     this.storyID = this.storyTransferService.getStoryID();
     this.storyTransferService.deleteStoryID();
     this.getStoryDetails(this.storyID);
