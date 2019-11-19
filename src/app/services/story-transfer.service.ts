@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
     providedIn: 'root'
 })
+// service to allow components access the current story
 export class StoryTransferService {
 
     private storyID: number;
@@ -21,17 +22,4 @@ export class StoryTransferService {
     public deleteStoryID() {
         this.storyID = null;
     }
-
-    public setStoryTitle(storyTitle: string) {
-        this.storyTitle = storyTitle;
-    }
-
-    public getStoryTitle() {
-        return this.storyTitle;
-    }
-
-    public deleteStoryTitle() {
-        this.storyTitle = null;
-    }
-
 }
