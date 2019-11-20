@@ -1,12 +1,15 @@
 <div class="container">
   <div class="row">
     <div class="col">
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample_{{id}}" aria-expanded="true" aria-controls="collapseExample">
+            Link with href
+          </a>        
       <pre class="comment-header">{{ by }} {{ time }}</pre>
     </div>
   </div>
-  <div class="row">
+  <div class="row">      
     <div class="col">
-      <pre class="comment-text" [innerHTML]="text"></pre>
+      <pre id="collapseExample_{{id}}" class="collapse.show comment-text" [innerHTML]="text"></pre>
     </div>
   </div>
   <!-- useful way to select which class to apply using teratary operator  -->
