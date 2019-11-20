@@ -4,13 +4,14 @@
     font-family: Verdana;
     font-size: 0.75em;
     margin-bottom: 0.5rem;
+    color: #828282;
 }
 
 .comment-text {    
     white-space: pre-wrap;
     word-wrap: break-word;
     font-family: Verdana;
-    
+    margin-bottom: 0rem;
 }
 
 .comment-bullet {
