@@ -1,3 +1,11 @@
+.comment-header {    
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: Verdana;
+    font-size: 0.75em;
+    margin-bottom: 0.5rem;
+}
+
 .comment-text {    
     white-space: pre-wrap;
     word-wrap: break-word;
