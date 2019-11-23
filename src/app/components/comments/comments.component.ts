@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { HackerNewsService } from '../services/hackernews.service';
-import { StoryTransferService } from '../services/story-transfer.service';
+import { HackerNewsService } from 'src/app/services/hackernews.service';
+import { StoryTransferService } from 'src/app/services/story-transfer.service';
 
 import * as moment from 'moment';
 

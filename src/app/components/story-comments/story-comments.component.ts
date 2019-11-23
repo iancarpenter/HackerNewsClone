@@ -1,11 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { StoryTransferService } from '../services/story-transfer.service';
-import { HackerNewsService } from '../services/hackernews.service';
+import { StoryTransferService } from '../../services/story-transfer.service';
+import { HackerNewsService } from 'src/app/services/hackernews.service';
+import { Router, NavigationEnd } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 import * as moment from 'moment';
-import { Router, NavigationEnd } from '@angular/router';
-import { log } from 'util';
-import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-story-comments',
