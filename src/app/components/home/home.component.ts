@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { HackerNewsService } from '../services/hackernews.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { StoryTransferService } from '../services/story-transfer.service';
+import { StoryTransferService } from '../../services/story-transfer.service';
+import { HackerNewsService } from 'src/app/services/hackernews.service';
 
 import * as moment from 'moment';
+
 
 @Component({
   selector: 'app-home',

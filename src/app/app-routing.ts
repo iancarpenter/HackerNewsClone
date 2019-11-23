@@ -1,6 +1,8 @@
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { StoryCommentsComponent } from './story-comments/story-comments.component';
+// import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from './components/home/home.component';
+import { StoryCommentsComponent } from './components/story-comments/story-comments.component';
+
 
 const routes: Routes = [
     { path: 'topstories', data: { feed: 'topstories' }, component: HomeComponent },
